@@ -1,5 +1,4 @@
 const { Thought, User } = require('../models');
-const { db } = require('../models/User');
 
 const thoughtController = {
 
@@ -19,7 +18,7 @@ const thoughtController = {
         });
     },
 
-    // To create a Thought
+    // To create a Thought via POST Method
     createThought({ body }, res) {
         Thought.create(body)
         .then(({ _id }) => {
