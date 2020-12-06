@@ -81,7 +81,7 @@ const userController = {
                 { $pull: { friends: params.id } }
             )
                 .then(() => {
-                    // To delete USER
+                    // To delete USER and Cooresponding friends
                     Thought.deleteMany({ username: dbData.username })
                         .then(() => {
                             res.json({ message: "User deleted" });
