@@ -11,7 +11,7 @@ const ReactionSchema = new Schema(
         reactionBody: {
             type: String,
             required: true,
-            maxlength: 150
+            maxlength: 280
         },
         username: {
             type: String,
@@ -38,8 +38,8 @@ const ThoughtSchema = new Schema(
         thoughtText: {
             type: String,
             required: true,
-            minlength: 5,
-            maxlength: 200
+            minlength: 1,
+            maxlength: 280
         },
         createdAt: {
             type: Date,
@@ -57,8 +57,7 @@ const ThoughtSchema = new Schema(
         toJSON: {
             getters: true
         },
-        id: false,
-        _id: false
+        id: false
     }
 )
 
