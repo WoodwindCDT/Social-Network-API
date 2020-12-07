@@ -1,8 +1,8 @@
 {
-  "name": "Social-Network-API",
+  "name": "social-network-api",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
@@ -17,5 +17,10 @@
   "bugs": {
     "url": "https://github.com/WoodwindCDT/Social-Network-API/issues"
   },
-  "homepage": "https://github.com/WoodwindCDT/Social-Network-API#readme"
+  "homepage": "https://github.com/WoodwindCDT/Social-Network-API#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "dateformat": "^4.2.2",
+    "mongoose": "^5.11.2"
+  }
 }

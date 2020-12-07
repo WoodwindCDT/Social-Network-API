@@ -1,5 +1,5 @@
 const { Schema, model, Types } = require('mongoose');
-var dateFormat = require("dateformat");
+var dateFormat = require("dateFormat");
 
 const ReactionSchema = new Schema(
     {

@@ -39,7 +39,7 @@ const thoughtController = {
     },
 
     // To GET a Thought @ _ID
-    getThoughtsID( req, res ) {
+    getThoughtsID({ params }, res) {
         Thought.findOne({ _id: params.id })
         .populate({
             path: 'reactions',
@@ -62,19 +62,19 @@ const thoughtController = {
     // To PUT (Update) Thoughts Reaction @ _ID
     updateThought({ params, body }, res) {
         Thought.findOneAndUpdate({
-            _id: params.id },
+            _id: params.id }, 
             body,
-            { new: true })
-            .then(dbData => {
-                if (!dbData) {
-                res.status(404).json({ message: 'No pizza found with this id!' });
+            { new: true, runValidators: true })
+        .then(dbData => {
+            if (!dbData) {
+                res.status(404).json({ message: 'No User found with this id!' });
                 return;
-                }
-                res.json(dbData);
-            })
-            .catch(err => {
-                console.log(err);
-                res.status(400).json(err);
+            }
+            res.json(dbData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(400).json(err);
         });
     },
 
@@ -91,6 +91,22 @@ const thoughtController = {
                     return;
                 }
                 res.json(dbData);
+            })
+            .catch(err => {
+                console.log(err);
+                res.status(400).json(err);
+        });
+    },
+
+    // To DELETE a Thought @ _ID 
+    deleteThought({ params }, res) {
+        Thought.findOneAndDelete({ _id: params.id })
+            .then((dbData) => {
+                if (!dbData) {
+                    res.status(404).json({ message: "No Thought found with this id" });
+                    return;
+                }
+                res.json({ message: 'Thought deleted' })
             })
             .catch(err => {
                 console.log(err);
